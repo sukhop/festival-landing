@@ -27,13 +27,28 @@
                     </a>
                 </div>
                 <div class="item-right">
-                    <ul class="menu list-unstyled m-0 p-0">
+                    <!-- Desktop nav links — hidden until scrolled -->
+                    <ul class="desktop-menu-inline list-unstyled m-0 p-0">
                         <li><a href="./festival-programme.html">Festivals</a></li>
                         <li><a href="javascript:void(0);">Materialien</a></li>
                         <li><a href="javascript:void(0);">Über uns</a></li>
                         <li><a href="javascript:void(0);">Impressum</a></li>
                     </ul>
-                    <div class="hamburger d-lg-none">
+                    <!-- Desktop menu trigger — visible only after scroll -->
+                    <button class="menu-toggle d-none d-lg-inline-flex" type="button" aria-expanded="false">
+                        <span class="menu-toggle-label">Menu</span>
+                    </button>
+                    <!-- Desktop slide-in panel -->
+                    <nav class="desktop-menu-panel" aria-hidden="true">
+                        <ul class="desktop-menu-panel-list list-unstyled m-0 p-0">
+                            <li><a href="./festival-programme.html">Festivals</a></li>
+                            <li><a href="javascript:void(0);">Materialien</a></li>
+                            <li><a href="javascript:void(0);">Über uns</a></li>
+                            <li><a href="javascript:void(0);">Impressum</a></li>
+                        </ul>
+                    </nav>
+                    <!-- Mobile hamburger -->
+                    <div class="hamburger d-lg-none" aria-label="Open menu" aria-expanded="false">
                         <svg width="22" height="8" viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line x1="0.75" y1="0.75" x2="20.8394" y2="0.75" stroke="#706C49" stroke-width="1.5"
                                 stroke-linecap="round" />
@@ -41,6 +56,26 @@
                                 stroke-linecap="round" />
                         </svg>
                     </div>
+                    <!-- Mobile slide-down panel -->
+                    <nav class="mobile-menu-panel" id="mobileMenuPanel">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <img src="./images/mobile-logo.svg" class="mobile-menu-logo" alt="">
+                            <button class="mobile-menu-close border-0 bg-transparent" id="mobileMenuClose">&times;</button>
+                        </div>
+                        <ul class="list-unstyled m-0 p-0 d-flex flex-column gap-4 text-center">
+                            <li><a href="./festival-programme.html">Festivals</a></li>
+                            <li><a href="javascript:void(0);">Materialien</a></li>
+                            <li><a href="javascript:void(0);">Über uns</a></li>
+                            <li><a href="javascript:void(0);">Impressum</a></li>
+                            <li><a href="javascript:void(0);">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
+                                            viewBox="0 0 24 24">
+                                            <path fill="currentColor"
+                                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                                        </svg>
+                            </a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -86,10 +121,10 @@
         </section>
         <section class="event-wrap spacer-y">
             <div class="container">
-                <p class="mb-3">Navigieren Sie sich durch das vielfältige Programm, indem Sie eine oder mehrere Filter
+                <p class="mb-3 text-lg">Navigieren Sie sich durch das vielfältige Programm, indem Sie eine oder mehrere Filter
                     anwenden. Wenn Sie keine Filter setzen, sehen Sie das komplette Programm in zeitlich chronologischer
                     Folge. Klicken Sie auf einen Veranstaltungstitel, um Details zur Veranstaltung zu sehen.</p>
-                <p class="mb-3">Der Filter "<span class="text-lilac fw-semibold">DFH-Fokus</span>" zeigt alle, zumeist
+                <p class="mb-3 text-lg">Der Filter "<span class="text-lilac fw-semibold">DFH-Fokus</span>" zeigt alle, zumeist
                     singulären Veranstaltungen an, die in der Regel von den Initiator*innen und Hauptveranstalter*innen
                     des DFH-Festivals organisiert wurden.</p>
 
@@ -234,38 +269,195 @@
                 </div>
                 <div class="event-list mt-5">
                     <div class="list-wrap">
-                        <p class="text-md mb-0 fw-bold">Mowed Meadow - Sounds of the City</p>
+                        <p class="text-md mb-0 fw-semibold">Mowed Meadow - Sounds of the City</p>
                         <p class="mb-0">Workshop</p>
                         <p class="mb-0">10:00-12:00 Uhr</p>
                         <p class="mb-0"><img src="./images/icon-1.svg" alt=""></p>
                     </div>
+                    <div class="event-accordion-body d-none">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-6">
+                                <h3 class="mb-4 h3">Mowed Meadow - Sounds of the City</h3>
+                                <div class="text-sm fw-semibold mb-4 event-meta d-flex flex-column gap-2">
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstalter*in |</span>
+                                        Bildungsstätte Einschlingen</div>
+                                    <div class="text-green"><span
+                                            class="text-purple fw-bold">Referent*innen/Künstler*innen |</span>
+                                        Demokratie-Fitness Coach</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Format |</span> Workshop
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Datum |</span> 02.07.2026
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Uhrzeit |</span> 10:00 -
+                                        12:00</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstaltungsort |</span>
+                                        Bildungsstätte Einschlingen</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Adresse |</span>
+                                        Schlingenstraße 65 33649 Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Physische Barrierefreiheit
+                                            |</span> Ja</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Anmeldung nötig |</span>
+                                        Ja</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Anmeldung bis wann
+                                            |</span> 2.7.2026</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Anmeldung unter |</span>
+                                        xxx@xxx.de</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Thema |</span> Demokratie
+                                    </div>
+                                </div>
+                                <p class="text-sm">Rund 90 Veranstaltungen über vier Tage an verschiedenen Orten in
+                                    Bielefeld und das kostenfrei! Freuen Sie sich auch in diesem Jahr auf
+                                    unterschiedlichste Veranstaltungsformate von Workshops und Podiumsdiskussionen.</p>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end">
+                                <img src="./images/modal-image.png" alt="Event Image" class="w-100 rounded-4">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="list-wrap">
-                        <p class="text-md mb-0 fw-bold">Szenische Lesung zur EU-Lieferkettenrichtlinie: Konzernlobby
+                        <p class="text-md mb-0 fw-semibold">Szenische Lesung zur EU-Lieferkettenrichtlinie: Konzernlobby
                             kämpft gegen Menschenrechte und soziale Mindeststandards – wir kämpfen dafür!</p>
                         <p class="mb-0">Workshop</p>
                         <p class="mb-0">10:00-12:00 Uhr</p>
                         <p class="mb-0"><img src="./images/icon-1.svg" alt=""></p>
                     </div>
+                    <div class="event-accordion-body d-none">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-6">
+                                <h3 class="mb-4 h3">Szenische Lesung zur EU-Lieferkettenrichtlinie</h3>
+                                <div class="text-sm fw-semibold mb-4 event-meta d-flex flex-column gap-2">
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstalter*in |</span>
+                                        Welthaus Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Format |</span> Workshop
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Datum |</span> 02.07.2026
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Uhrzeit |</span> 10:00 -
+                                        12:00</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstaltungsort |</span>
+                                        Welthaus Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Physische Barrierefreiheit
+                                            |</span> Ja</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Thema |</span> Demokratie
+                                    </div>
+                                </div>
+                                <p class="text-sm">Rund 90 Veranstaltungen über vier Tage an verschiedenen Orten in
+                                    Bielefeld und das kostenfrei!</p>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end">
+                                <img src="./images/modal-image.png" alt="Event Image" class="w-100 rounded-4">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="list-wrap">
-                        <p class="text-md mb-0 fw-bold">Die Kuh als Mitbürgerin?</p>
+                        <p class="text-md mb-0 fw-semibold">Die Kuh als Mitbürgerin?</p>
                         <p class="mb-0">Workshop</p>
                         <p class="mb-0">10:00-12:00 Uhr</p>
                         <p class="mb-0"><img src="./images/icon-1.svg" alt=""></p>
                     </div>
+                    <div class="event-accordion-body d-none">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-6">
+                                <h3 class="mb-4 h3">Die Kuh als Mitbürgerin?</h3>
+                                <div class="text-sm fw-semibold mb-4 event-meta d-flex flex-column gap-2">
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstalter*in |</span>
+                                        Universität Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Format |</span> Workshop
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Datum |</span> 02.07.2026
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Uhrzeit |</span> 10:00 -
+                                        12:00</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstaltungsort |</span>
+                                        Universität Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Physische Barrierefreiheit
+                                            |</span> Ja</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Thema |</span> Klimawandel
+                                    </div>
+                                </div>
+                                <p class="text-sm">Rund 90 Veranstaltungen über vier Tage an verschiedenen Orten in
+                                    Bielefeld und das kostenfrei!</p>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end">
+                                <img src="./images/modal-image.png" alt="Event Image" class="w-100 rounded-4">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="list-wrap">
-                        <p class="text-md mb-0 fw-bold">Sicherheit neu denken</p>
+                        <p class="text-md mb-0 fw-semibold">Sicherheit neu denken</p>
                         <p class="mb-0">Workshop</p>
                         <p class="mb-0">10:00-12:00 Uhr</p>
                         <p class="mb-0"><img src="./images/icon-1.svg" alt=""></p>
                     </div>
+                    <div class="event-accordion-body d-none">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-6">
+                                <h3 class="mb-4 h3">Sicherheit neu denken</h3>
+                                <div class="text-sm fw-semibold mb-4 event-meta d-flex flex-column gap-2">
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstalter*in |</span>
+                                        Bildungsstätte Einschlingen</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Format |</span> Workshop
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Datum |</span> 03.07.2026
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Uhrzeit |</span> 10:00 -
+                                        12:00</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstaltungsort |</span>
+                                        Wissenswerkstadt</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Physische Barrierefreiheit
+                                            |</span> Ja</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Thema |</span> Demokratie
+                                    </div>
+                                </div>
+                                <p class="text-sm">Rund 90 Veranstaltungen über vier Tage an verschiedenen Orten in
+                                    Bielefeld und das kostenfrei!</p>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end">
+                                <img src="./images/modal-image.png" alt="Event Image" class="w-100 rounded-4">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="list-wrap">
-                        <p class="text-md mb-0 fw-bold">Die mobile Zuversichtsentwicklungsstation / Eine politische
+                        <p class="text-md mb-0 fw-semibold">Die mobile Zuversichtsentwicklungsstation / Eine politische
                             Kunstaktion</p>
                         <p class="mb-0">Workshop</p>
                         <p class="mb-0">10:00-12:00 Uhr</p>
                         <p class="mb-0"><img src="./images/icon-1.svg" alt=""></p>
                     </div>
+                    <div class="event-accordion-body d-none">
+                        <div class="row gx-5 align-items-start">
+                            <div class="col-lg-6">
+                                <h3 class="mb-4 h3">Die mobile Zuversichtsentwicklungsstation</h3>
+                                <div class="text-sm fw-semibold mb-4 event-meta d-flex flex-column gap-2">
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstalter*in |</span>
+                                        Welthaus Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Format |</span> Offenes
+                                        Mitmach-Angebot</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Datum |</span> 04.07.2026
+                                    </div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Uhrzeit |</span> 10:00 -
+                                        12:00</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Veranstaltungsort |</span>
+                                        Welthaus Bielefeld</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Physische Barrierefreiheit
+                                            |</span> Ja</div>
+                                    <div class="text-green"><span class="text-purple fw-bold">Thema |</span>
+                                        Rassismuskritik</div>
+                                </div>
+                                <p class="text-sm">Rund 90 Veranstaltungen über vier Tage an verschiedenen Orten in
+                                    Bielefeld und das kostenfrei!</p>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end">
+                                <img src="./images/modal-image.png" alt="Event Image" class="w-100 rounded-4">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
         <section class="info-section spacer-y pt-0">
@@ -320,110 +512,53 @@
                 <div class="col-lg-6">
                     <p class="h3 mb-large">Menschen, Wissen und Ideen verbinden – für eine gerechte Zukunft innerhalb
                         planetarer Grenzen.</p>
-                    <div class="footer-icons d-flex align-items-center flex-wrap">
+                    <div class="footer-icons d-none d-md-flex align-items-center flex-wrap">
                         <img src="./images/universitat.svg" alt="">
                         <img src="./images/welthaus.svg" alt="">
+                        <img src="./images/hildesheim.svg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="row g-4">
-                        <div class="col-lg-6">
+                        <div class="col-6 d-md-none d-block">
+                            <div class="footer-icons d-flex align-items-start flex-column flex-wrap">
+                                <img src="./images/universitat.svg" alt="">
+                                <img src="./images/welthaus.svg" alt="">
+                                <img src="./images/hildesheim.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-6">
                             <ul class="list-unstyled d-flex flex-column gap-4 m-0 p-0">
                                 <li><a href="">Festivals</a></li>
                                 <li><a href="">Materialien</a></li>
                                 <li><a href="">Über uns</a></li>
                                 <li><a href="">Impressum</a></li>
+                                <li><a href="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
+                                            viewBox="0 0 24 24">
+                                            <path fill="currentColor"
+                                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                                        </svg>
+                                    </a></li>
                             </ul>
                         </div>
-                        <!-- <div class="col-lg-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
-                                viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
-                            </svg>
-                            <p class="text-md mb-3 fw-bold">Subscribe to our newsletter here</p>
-                            <form action="" class="d-flex flex-column gap-3 align-items-end">
-                                <input type="text" class="form-control theme-control">
-                                <button class="button button-secondary border-0">Subscribe</button>
-                            </form>
-                        </div> -->
+                        <div class="col-lg-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
+                                    viewBox="0 0 24 24">
+                                    <path fill="currentColor"
+                                        d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                                </svg>
+                                <p class="text-md mb-3 fw-bold">Abonnieren Sie unseren Newsletter</p>
+                                <form action="" class="d-flex flex-column gap-3 align-items-end">
+                                    <input type="text" class="form-control theme-control" placeholder="Enter email address...">
+                                    <button class="button button-secondary border-0">Abonnieren</button>
+                                </form>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Event Details Modal -->
-    <div class="event-modal" id="eventModal">
-        <div class="modal-bg"></div>
-        <div
-            class="container position-relative h-100 d-flex align-items-center justify-content-center flex-column py-5">
-            <!-- <div class="d-flex flex-column justify-content-center">
-                <button class="btn-close-modal d-lg-none border-0 bg-transparent fs-2 mb-3 ms-auto" id="closeModalMobile" style="cursor: pointer;">&times;</button>
-                
-            </div> -->
-            <div class="row w-100 gx-5 align-items-center">
-                <div class="col-lg-12">
-                    <div class="position-relative">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <h3 class="mb-4 text-lg">Demokratisches Verhalten und Handeln stärken durch Training
-                                    einzelner
-                                    "Demokratie-Muskel"</h3>
-                            </div>
-                        </div>
-                        <button
-                            class="btn-close-modal position-absolute top-0 end-0 border-0 bg-transparent fs-2 text-dark"
-                            id="closeModalDesktop" style="cursor: pointer; z-index: 2;">&times;</button>
-                    </div>
-                </div>
-                <div class="col-lg-6 custom-scrollbar pe-lg-5" style="overflow-y: auto;">
-
-                    <div class="text-sm fw-semibold mb-4 event-meta d-flex flex-column gap-2">
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Veranstalter*in |</span>
-                            Bildungsstätte Einschlingen
-                        </div>
-                        <div class="text-green text-medium"><span
-                                class="text-purple fw-bold">Referent*innen/Künstler*innen |</span> Demokratie-Fitness
-                            Coach</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Format |</span> Workshop,
-                            für Grundschulkinder geeignet,
-                            für Jugendliche geeignet</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Datum |</span> 02.07.2026
-                        </div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Uhrzeit |</span> 15:00 -
-                            17:30</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Veranstaltungsort |</span>
-                            Bildungsstätte Einschlingen
-                        </div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Adresse |</span>
-                            Schlingenstraße 65 33649 Bielefeld</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Physische Barrierefreiheit
-                                |</span> Ja</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Anmeldung nötig |</span>
-                            Ja</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Anmeldung bis wann
-                                |</span> 2.7.2026</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Anmeldung unter |</span>
-                            xxx@xxx-de</div>
-                        <div class="text-green text-medium"><span class="text-purple fw-bold">Thema |</span> Demokratie
-                        </div>
-                    </div>
-
-                    <p class="text-sm mb-0">Rund 90 Veranstaltungen über vier Tage an verschiedenen Orten in Bielefeld
-                        und das kostenfrei! Freuen Sie sich auch in diesem Jahr auf unterschiedlichste
-                        Veranstaltungsformate von Workshops und Podiumsdiskussionen über Ausstellungen und Konzerte bis
-                        hin zu Offenen-Mitmachangeboten, Vorträgen und Film- und Theateraufführungen. Das
-                        Festivalprogramm wurde auch in diesem Jahr partizipativ von Menschen aus unterschiedlichen
-                        gesellschaftlichen Bereichen (Bildung, Kunst, Wissenschaft etc.) in einem gemeinsamen Prozess
-                        gestaltet.</p>
-                </div>
-                <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-end position-relative">
-                    <img src="./images/modal-image.png" alt="Event Image" class="w-100 rounded-5">
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

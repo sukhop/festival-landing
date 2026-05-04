@@ -1,69 +1,132 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const desktopMenuPanel = document.querySelector('.desktop-menu-panel');
+    // ─── Elements ───────────────────────────────────────────────────────────
+    const header         = document.querySelector('header');
+    const desktopLinks   = document.querySelector('.desktop-menu-inline');
+    const menuToggle     = document.querySelector('.menu-toggle');
+    const hamburger      = document.querySelector('.hamburger');
+    const mobilePanel    = document.querySelector('.mobile-menu-panel');
+    const mobileClose    = document.querySelector('.mobile-menu-close');
 
-    if (hamburger && mobileMenuPanel) {
-        hamburger.addEventListener('click', () => {
-            mobileMenuPanel.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', mobileMenuPanel.classList.contains('active'));
-        });
+    const SCROLL_THRESHOLD = 60;
+    const DESKTOP_BP       = 992;
 
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuPanel.contains(e.target) && !hamburger.contains(e.target) && mobileMenuPanel.classList.contains('active')) {
-                mobileMenuPanel.classList.remove('active');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
+    // ─── Helpers ────────────────────────────────────────────────────────────
+    const isDesktop = () => window.innerWidth >= DESKTOP_BP;
 
-    if (menuToggle && desktopMenuPanel) {
-        menuToggle.addEventListener('click', () => {
-            const isActive = desktopMenuPanel.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', isActive);
-        });
+    // ─── Desktop: scroll state ───────────────────────────────────────────────
+    let ticking = false;
 
-        document.addEventListener('click', (e) => {
-            if (!desktopMenuPanel.contains(e.target) && !menuToggle.contains(e.target) && desktopMenuPanel.classList.contains('active')) {
-                desktopMenuPanel.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
+    const applyScrollState = () => {
+        if (!header) return;
+        const scrolled = window.scrollY > SCROLL_THRESHOLD;
+        header.classList.toggle('scrolled', scrolled);
 
-    // --- Header scroll background ---
-    const header = document.querySelector('header');
-    const SCROLL_THRESHOLD = 80;
-
-    const handleScroll = () => {
-        if (header) {
-            header.classList.toggle('scrolled', window.scrollY > SCROLL_THRESHOLD);
+        // When un-scrolling back to top, close menu-open too
+        if (!scrolled) {
+            header.classList.remove('menu-open');
+            if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
         }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // run on load in case page is already scrolled
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => { applyScrollState(); ticking = false; });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    applyScrollState(); // run once on load
+
+    // ─── Desktop: Menu toggle (scrolled → open/close inline links) ───────────
+    if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!header.classList.contains('scrolled')) return;
+
+            const opening = !header.classList.contains('menu-open');
+            header.classList.toggle('menu-open', opening);
+            menuToggle.setAttribute('aria-expanded', String(opening));
+        });
+    }
+
+    // Close desktop menu when clicking outside header
+    document.addEventListener('click', (e) => {
+        if (header && !header.contains(e.target)) {
+            header.classList.remove('menu-open');
+            if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // ─── Mobile: hamburger open ──────────────────────────────────────────────
+    if (hamburger && mobilePanel) {
+        hamburger.addEventListener('click', () => {
+            const opening = !mobilePanel.classList.contains('active');
+            mobilePanel.classList.toggle('active', opening);
+            hamburger.setAttribute('aria-expanded', String(opening));
+            document.body.style.overflow = opening ? 'hidden' : '';
+        });
+    }
+
+    // Mobile: close button
+    if (mobileClose) {
+        mobileClose.addEventListener('click', closeMobile);
+    }
+
+    function closeMobile() {
+        if (mobilePanel) mobilePanel.classList.remove('active');
+        if (hamburger)   hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    // Close mobile when clicking outside panel
+    document.addEventListener('click', (e) => {
+        if (
+            mobilePanel &&
+            mobilePanel.classList.contains('active') &&
+            !mobilePanel.contains(e.target) &&
+            hamburger && !hamburger.contains(e.target)
+        ) {
+            closeMobile();
+        }
+    });
+
+    // On resize: clean up states
+    window.addEventListener('resize', () => {
+        if (isDesktop()) {
+            closeMobile();
+        } else {
+            header.classList.remove('menu-open');
+        }
+    });
+
+    // ─── Close mobile menu on nav link click ────────────────────────────────
+    if (mobilePanel) {
+        mobilePanel.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobile);
+        });
+    }
 
 
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    // ════════════════════════════════════════════════════════════════════════
+    // FILTER LOGIC
+    // ════════════════════════════════════════════════════════════════════════
+    const filterBtns    = document.querySelectorAll('.filter-btn');
     const filterContent = document.querySelector('.filter-content');
-    const filterLine = document.querySelector('.filter-line');
-    const filterWrap = document.querySelector('.filter-wrap');
+    const filterLine    = document.querySelector('.filter-line');
+    const filterWrap    = document.querySelector('.filter-wrap');
 
     const updateLinePosition = (btn) => {
         if (filterLine && filterWrap) {
-            const btnRect = btn.getBoundingClientRect();
+            const btnRect  = btn.getBoundingClientRect();
             const wrapRect = filterWrap.getBoundingClientRect();
-            const centerLeft = btnRect.left - wrapRect.left + (btnRect.width / 2);
-            filterLine.style.left = `${centerLeft}px`;
+            const center   = btnRect.left - wrapRect.left + btnRect.width / 2;
+            filterLine.style.left = `${center}px`;
         }
     };
 
     const closeAllDropdowns = () => {
         if (filterContent) filterContent.classList.add('d-none');
+        if (filterLine)    filterLine.classList.add('d-none');
         document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.add('d-none'));
     };
 
@@ -71,58 +134,47 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const filterType = btn.getAttribute('data-filter');
 
-            // If already open → close
             if (btn.classList.contains('filled')) {
                 btn.classList.remove('filled');
                 closeAllDropdowns();
                 return;
             }
 
-            // Close all others, open this one
             filterBtns.forEach(b => b.classList.remove('filled'));
             closeAllDropdowns();
 
             const activeDropdown = document.getElementById(`dropdown-${filterType}`);
             if (activeDropdown) {
                 btn.classList.add('filled');
-                if (filterContent) {
-                    filterContent.classList.remove('d-none');
-                    updateLinePosition(btn);
-                }
+                if (filterContent) filterContent.classList.remove('d-none');
                 activeDropdown.classList.remove('d-none');
+                if (filterLine) filterLine.classList.remove('d-none');
+                requestAnimationFrame(() => updateLinePosition(btn));
             }
         });
     });
 
-    // Multi-select option items — keep dropdown open, toggle selection
     document.querySelectorAll('.option-item').forEach(option => {
         option.addEventListener('click', (e) => {
-            e.stopPropagation(); // keep dropdown open
-
+            e.stopPropagation();
             option.classList.toggle('selected');
 
             const parentDropdown = option.closest('.filter-options');
             if (!parentDropdown) return;
 
             const targetFilter = parentDropdown.getAttribute('data-target');
-            const targetBtn = document.querySelector(`[data-filter="${targetFilter}"]`);
+            const targetBtn    = document.querySelector(`[data-filter="${targetFilter}"]`);
             if (!targetBtn) return;
 
-            const valSpan = targetBtn.parentElement.querySelector('.selected-value');
+            const valSpan  = targetBtn.parentElement.querySelector('.selected-value');
             const selected = [...parentDropdown.querySelectorAll('.option-item.selected')]
                 .map(el => el.textContent.trim());
 
-            if (selected.length > 0) {
-                if (valSpan) valSpan.textContent = selected.join(', ');
-                targetBtn.classList.add('active');
-            } else {
-                if (valSpan) valSpan.textContent = '';
-                targetBtn.classList.remove('active');
-            }
+            if (valSpan) valSpan.textContent = selected.length ? selected.join(', ') : '';
+            targetBtn.classList.toggle('active', selected.length > 0);
         });
     });
 
-    // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.filter-wrap')) {
             filterBtns.forEach(b => b.classList.remove('filled'));
@@ -130,41 +182,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Modal Logic ---
-    const eventItems = document.querySelectorAll('.event-list .list-wrap');
-    const eventModal = document.getElementById('eventModal');
-    const closeBtnDesktop = document.getElementById('closeModalDesktop');
-    const closeBtnMobile = document.getElementById('closeModalMobile');
 
-    eventItems.forEach(item => {
+    // ════════════════════════════════════════════════════════════════════════
+    // ACCORDION LOGIC
+    // ════════════════════════════════════════════════════════════════════════
+    document.querySelectorAll('.event-list .list-wrap').forEach(item => {
         item.addEventListener('click', () => {
-            if (eventModal) {
-                eventModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const body   = item.nextElementSibling;
+            if (!body || !body.classList.contains('event-accordion-body')) return;
+            const isOpen = !body.classList.contains('d-none');
+
+            document.querySelectorAll('.event-accordion-body').forEach(b => b.classList.add('d-none'));
+            document.querySelectorAll('.list-wrap').forEach(l => l.classList.remove('active'));
+
+            if (!isOpen) {
+                body.classList.remove('d-none');
+                item.classList.add('active');
             }
         });
     });
 
-    const closeModal = () => {
-        if (eventModal) {
-            eventModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    };
 
-    if (closeBtnDesktop) closeBtnDesktop.addEventListener('click', closeModal);
-    if (closeBtnMobile) closeBtnMobile.addEventListener('click', closeModal);
-
-    if (eventModal) {
-        eventModal.addEventListener('click', (e) => {
-            if (e.target === eventModal || e.target.classList.contains('modal-bg') || e.target === eventModal.querySelector('.container')) {
-                closeModal();
-            }
-        });
-    }
-
-    // --- Tabs Logic ---
-    const tabBtns = document.querySelectorAll('.tab-btn');
+    // ════════════════════════════════════════════════════════════════════════
+    // TABS LOGIC
+    // ════════════════════════════════════════════════════════════════════════
+    const tabBtns     = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
     tabBtns.forEach(btn => {
@@ -178,11 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('text-lilac', 'active');
             btn.style.color = '';
 
-            const targetId = `tab-${btn.getAttribute('data-tab')}`;
-            const targetContent = document.getElementById(targetId);
-            if (targetContent) {
-                targetContent.classList.remove('d-none');
-            }
+            const target = document.getElementById(`tab-${btn.getAttribute('data-tab')}`);
+            if (target) target.classList.remove('d-none');
         });
     });
 });
