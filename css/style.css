@@ -919,5 +919,119 @@ footer .container-fluid .footer-icons img {
     text-align: left !important;
   }
 }
+.about-hero {
+  background-image: url("../images/hero.png");
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 575.98px) {
+  .about-hero {
+    background-image: url("../images/hero-mobile.png");
+  }
+}
+.about-hero.spacer-y {
+  padding-bottom: 150px;
+}
+@media (max-width: 575.98px) {
+  .about-hero.spacer-y {
+    padding-top: 130px;
+    padding-bottom: 45px;
+  }
+  .about-hero.spacer-y h1 {
+    font-size: 24px;
+  }
+  .about-hero.spacer-y .h3 {
+    font-size: 18px;
+  }
+}
+.about-hero .about-group-photo {
+  border-radius: 20px;
+  width: 100%;
+}
 
-/*# sourceMappingURL=style.css.map */
+.about-section.spacer-y {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+@media (max-width: 767.98px) {
+  .about-section.spacer-y {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.about-section .container {
+  width: 70%;
+  max-width: 1140px;
+  margin: 0 auto;
+  border-radius: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(30px, 4vw, 60px) clamp(20px, 4vw, 60px);
+}
+@media (max-width: 991.98px) {
+  .about-section .container {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}
+.about-section.about-profile .container {
+  background-image: url("../images/team-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.about-section.about-org .container {
+  background-color: #fcfbfe;
+}
+.about-section .about-org-heading {
+  color: #BFA7DE;
+  font-weight: 600;
+}
+
+.about-org-logo-card {
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-org-logo-card img {
+  max-width: 240px;
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .about-org-logo-card {
+    margin-bottom: 1.5rem;
+  }
+  .about-org-logo-card img {
+    max-width: 160px;
+  }
+}
+
+.about-profile-img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 991.98px) {
+  .about-profile-img {
+    max-width: 280px;
+    margin: 0 auto 2rem;
+  }
+}
+
+.about-org-logo {
+  max-width: 200px;
+}
+@media (max-width: 991.98px) {
+  .about-org-logo {
+    max-width: 160px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-section .row {
+    text-align: left !important;
+  }
+}

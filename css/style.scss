@@ -804,6 +804,7 @@ header {
         }
     }
 }
+
 .mobile-menu-logo,
 .mobile-menu-close {
     position: absolute;
@@ -1198,6 +1199,131 @@ footer {
 
     .format-section {
         .col-lg-6 {
+            text-align: left !important;
+        }
+    }
+}
+
+
+// ════════════════════════════════════════════════════════════════════════════
+// ABOUT PAGE
+// ════════════════════════════════════════════════════════════════════════════
+
+.about-hero {
+    @include bg-cover('../images/hero.png');
+
+    @media (max-width: 575.98px) {
+        background-image: url('../images/hero-mobile.png');
+    }
+
+    &.spacer-y {
+        padding-bottom: 150px;
+
+        @media (max-width: 575.98px) {
+            padding-top: 130px;
+            padding-bottom: 45px;
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .h3 {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .about-group-photo {
+        border-radius: 20px;
+        width: 100%;
+    }
+}
+
+.about-section {
+    &.spacer-y {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @media (max-width: 767.98px) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+
+    .container {
+        width: 70%;
+        max-width: 1140px;
+        margin: 0 auto;
+        border-radius: clamp(1.5rem, 4vw, 4rem);
+        padding: clamp(30px, 4vw, 60px) clamp(20px, 4vw, 60px);
+
+        @media (max-width: 991.98px) {
+            width: 90%;
+            padding: 30px 20px;
+        }
+    }
+
+    &.about-profile .container {
+        background-image: url('../images/team-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &.about-org .container {
+        background-color: #fcfbfe;
+    }
+
+    .about-org-heading {
+        color: $pj-lilac;
+        font-weight: 600;
+    }
+}
+
+.about-org-logo-card {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        max-width: 240px;
+        width: 100%;
+    }
+
+    @media (max-width: 991.98px) {
+        margin-bottom: 1.5rem;
+        img {
+            max-width: 160px;
+        }
+    }
+}
+
+.about-profile-img {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+
+    @media (max-width: 991.98px) {
+        max-width: 280px;
+        margin: 0 auto 2rem;
+    }
+}
+
+.about-org-logo {
+    max-width: 200px;
+
+    @media (max-width: 991.98px) {
+        max-width: 160px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .about-section {
+        .row {
             text-align: left !important;
         }
     }

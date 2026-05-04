@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Über uns – Das Festival</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container-fluid">
+            <div class="navigation d-flex align-items-center justify-content-between gap-3">
+                <div class="item-left">
+                    <a href="./" class="logo">
+                        <img src="./images/logo.svg" alt="">
+                    </a>
+                </div>
+                <div class="item-right">
+                    <!-- Desktop nav links — hidden until scrolled -->
+                    <ul class="desktop-menu-inline list-unstyled m-0 p-0">
+                        <li><a href="./festival-programme.html">Festivals</a></li>
+                        <li><a href="javascript:void(0);">Materialien</a></li>
+                        <li><a href="./about.html">Über uns</a></li>
+                        <li><a href="./imprint.html">Impressum</a></li>
+                    </ul>
+                    <!-- Desktop menu trigger — visible only after scroll -->
+                    <button class="menu-toggle d-none d-lg-inline-flex" type="button" aria-expanded="false">
+                        <span class="menu-toggle-label">Menu</span>
+                    </button>
+                    <!-- Desktop slide-in panel -->
+                    <nav class="desktop-menu-panel" aria-hidden="true">
+                        <ul class="desktop-menu-panel-list list-unstyled m-0 p-0">
+                            <li><a href="./festival-programme.html">Festivals</a></li>
+                            <li><a href="javascript:void(0);">Materialien</a></li>
+                            <li><a href="./about.html">Über uns</a></li>
+                            <li><a href="./imprint.html">Impressum</a></li>
+                        </ul>
+                    </nav>
+                    <!-- Mobile hamburger -->
+                    <div class="hamburger d-lg-none" aria-label="Open menu" aria-expanded="false">
+                        <svg width="22" height="8" viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0.75" y1="0.75" x2="20.8394" y2="0.75" stroke="#706C49" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="0.75" y1="6.3877" x2="20.8394" y2="6.3877" stroke="#706C49" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <!-- Mobile slide-down panel -->
+                    <nav class="mobile-menu-panel" id="mobileMenuPanel">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <img src="./images/mobile-logo.svg" class="mobile-menu-logo" alt="">
+                            <button class="mobile-menu-close border-0 bg-transparent"
+                                id="mobileMenuClose">&times;</button>
+                        </div>
+                        <ul class="list-unstyled m-0 p-0 d-flex flex-column gap-4 text-center">
+                            <li><a href="./festival-programme.html">Festivals</a></li>
+                            <li><a href="javascript:void(0);">Materialien</a></li>
+                            <li><a href="./about.html">Über uns</a></li>
+                            <li><a href="./imprint.html">Impressum</a></li>
+                            <li><a href="javascript:void(0);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                                    </svg>
+                                </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- ═══ HERO ═══ -->
+        <section class="about-hero spacer-y">
+            <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-7">
+                        <h1 class="mb-3">Über uns</h1>
+                        <p class="h3 mb-3">Bildung gestalten im Zeitalter der Migration</p>
+                        <p class="mb-3">Wir sind ein interdisziplinäres Team aus Wissenschaft, Bildung und Praxis, das
+                            sich mit den Herausforderungen und Möglichkeiten einer von Migration und Diversität
+                            geprägten Gesellschaft auseinandersetzt.</p>
+                        <p class="mb-0">Unsere Arbeit verbindet rassismuskritische Analyse, Fragen von Zugehörigkeit
+                            und sozial-ökologischer Gerechtigkeit mit der Entwicklung von Bildungskonzepten, die auf
+                            Teilhabe, Reflexion und gesellschaftliche Transformation abzielen.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="./images/group pic.png" class="about-group-photo mt-4 mt-lg-0"
+                            alt="Das Festival-Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PROFILE 1: Prof. Dr. Paul Mecheril ═══ -->
+        <section class="about-section about-profile spacer-y  mt-5">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Prof. Dr. Paul Mecheril</h2>
+                        <p class="mb-3">Paul Mecheril ist Professor für Erziehungswissenschaft mit dem
+                            Schwerpunkt Migration an der Fakultät für Erziehungswissenschaft der Universität
+                            Bielefeld. Er promovierte in Psychologie, die Habilitation in Erziehungswissenschaft
+                            widmete sich dem Phänomen der (Mehrfach)Zugehörigkeiten in der
+                            Migrationsgesellschaft.</p>
+                        <p class="mb-0">Er beschäftigt sich unter anderem mit rassismustheoretischer
+                            Gesellschaftsanalyse, ethischen Fragen von Bildung sowie
+                            migrationsgesellschaftlichen Zugehörigkeitsordnungen, Macht und Bildung.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="./images/top-most-secton.png" class="about-profile-img" alt="Prof. Dr. Paul Mecheril">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ORG 1: Universität Bielefeld ═══ -->
+        <section class="about-section about-org spacer-y ">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-between">
+                    <div class="col-lg-4">
+                        <div class="about-org-logo-card">
+                            <img src="./images/universitat.svg" alt="Universität Bielefeld">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <h3 class="about-org-heading mb-4">Universität Bielefeld</h3>
+                        <p class="mb-3">Institut für Erziehungswissenschaft, AG 10 Migrationspädagogik
+                            und Rassismuskritik. Noch nie waren weltweit so viele Menschen bereit, aufgrund von
+                            Kriegen, der Zerstörung von natürlichen Lebensbedingungen, Kriegen und anderen
+                            Bedrohungen gezwungen und aufgrund der technologisch bedingten Veränderung von Raum
+                            und Zeit in der Lage, ihren Arbeits- oder Lebensmittelpunkt, sei es vorübergehend
+                            oder auf Dauer, zu verändern: Wir leben in einem Zeitalter der Migration.</p>
+                        <p class="mb-0">Die AG beschäftigt sich mit der Frage, welche Bildungskonzepte in
+                            diesem Zeitalter angemessen sind und geht davon aus, dass Bildung in gerade diesem
+                            Zeitalter darauf zielen sollte, Formen und Ausmaß der zerstörerischen Gewalt des
+                            Menschen gegen Menschen und gegen die Natur zu erkennen und zu der Minderung dieser
+                            Gewalt beizutragen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PROFILE 2: Nadine Etzkorn ═══ -->
+        <section class="about-section about-profile spacer-y">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Nadine Etzkorn</h2>
+                        <p class="mb-3">Nadine Etzkorn ist wissenschaftliche Mitarbeiterin am Arbeitsbereich
+                            Diversity Education des Instituts für Angewandte Erziehungswissenschaft der Universität
+                            Hildesheim. Sie arbeitet dort im Projekt „Zukünfte der Migration", das sich mit
+                            Vorstellungen und Strategien zur Gestaltung von migrationsgesellschaftlichen Zukünften
+                            in politischen, medialen und sozialen Debatten, mit einem Fokus auf Bildungskontexte
+                            und die Migrationsforschung selbst auseinandersetzt.</p>
+                        <p class="mb-0">In ihrer Promotion untersucht sie Differenz- und Rassismuserfahrungen
+                            internationaler Studierender sowie die (Un-)Möglichkeiten rassismuskritischer
+                            Bildungsprozesse. Ihre Arbeits- und Forschungsschwerpunkte umfassen Rassismus,
+                            Migration, Bildung, Nachhaltigkeit, Dekolonialität, Internationalisierung und
+                            soziale Bewegungen.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="./images/last-secton.png" class="about-profile-img" alt="Nadine Etzkorn">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ORG 2: Universität Hildesheim ═══ -->
+        <section class="about-section about-org spacer-y">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-between">
+                    <div class="col-lg-4">
+                        <div class="about-org-logo-card">
+                            <img src="./images/hildesheim.svg" alt="Universität Hildesheim">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <h3 class="about-org-heading mb-4">Universität Hildesheim</h3>
+                        <p class="mb-3">Die Stiftung Universität Hildesheim ist Kooperationspartnerin des
+                            DFH-Festivals. Sie bringt Expertise in den Bereichen Kulturwissenschaften und
+                            interkulturelle Kommunikation ein und unterstützt den interdisziplinären Austausch
+                            zwischen Wissenschaft, Kunst und Zivilgesellschaft.</p>
+                        <p class="mb-0">Gemeinsam mit der Universität Bielefeld und dem Welthaus Bielefeld
+                            gestaltet sie das Festival als Ort des gemeinsamen Lernens und der kritischen Reflexion
+                            über planetarische Gerechtigkeit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PROFILE 3: Juliane Sellenriek ═══ -->
+        <section class="about-section about-profile spacer-y">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Juliane Sellenriek</h2>
+                        <p class="mb-3">Juliane Sellenriek koordiniert das DFH-Festival und ist verantwortlich
+                            für die Organisation und den partizipativen Prozess der Programmgestaltung. Sie
+                            arbeitet am Welthaus Bielefeld e.V. und bringt Menschen aus unterschiedlichen
+                            gesellschaftlichen Bereichen zusammen.</p>
+                        <p class="mb-0">Ihr besonderes Anliegen ist es, Räume für Begegnung und Austausch zu
+                            schaffen, in denen unterschiedliche Erfahrungen und Perspektiven gleichberechtigt
+                            Platz finden.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="./images/top-section.png" class="about-profile-img" alt="Juliane Sellenriek">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ORG 3: Welthaus Bielefeld ═══ -->
+        <section class="about-section about-org spacer-y">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-between">
+                    <div class="col-lg-4">
+                        <div class="about-org-logo-card">
+                            <img src="./images/welthaus.svg" alt="Welthaus Bielefeld">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <h3 class="about-org-heading mb-4">Welthaus Bielefeld</h3>
+                        <p class="mb-3">Das Welthaus Bielefeld e.V. engagiert sich seit vielen Jahren für globale
+                            Gerechtigkeit und nachhaltige Entwicklung. Als Zentrum für entwicklungspolitische
+                            Bildungs- und Informationsarbeit bietet es vielfältige Programme und Veranstaltungen
+                            an.</p>
+                        <p class="mb-0">Als Mitveranstalterin des DFH-Festivals bringt das Welthaus Bielefeld
+                            seine Expertise in der politischen Bildung und der Zusammenarbeit mit internationalen
+                            Partner*innen ein.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CONTACT CTA ═══ -->
+        <section class="contact-section spacer-y">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-content-center text-center">
+                    <div class="col-lg-5 col-xl-6 col-md-6">
+                        <h2 class="mb-4 fw-medium text-brown">Kontakt & Verteiler </h2>
+                        <p class="mb-4 text-lg">Nehmen Sie Kontakt auf!</p>
+                        <p class="mb-3">Wenn Sie Fragen oder Kritik zum Festival haben, dann melden Sie sich gerne unter
+                            der unten angegebenen Email-Adresse.</p>
+                        <p class="mb-0">Wenn Sie Interesse an der Mitgestaltung des nächsten Festivals haben, dann
+                            melden Sie sich bitte formlos zum DFH-Email-Verteiler an:<br><a
+                                href="mailto:dfhfestival.ew@uni-bielefeld.de">dfhfestival.ew@uni-bielefeld.de</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container-fluid">
+            <img src="./images/logo.svg" class="mb-4" alt="">
+            <div class="row g-4 justify-content-between">
+                <div class="col-lg-6">
+                    <p class="h3 mb-large">Menschen, Wissen und Ideen verbinden – für eine gerechte Zukunft innerhalb
+                        planetarer Grenzen.</p>
+                    <div class="footer-icons d-none d-md-flex align-items-center flex-wrap">
+                        <img src="./images/universitat.svg" alt="">
+                        <img src="./images/welthaus.svg" alt="">
+                        <img src="./images/hildesheim.svg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="row g-4">
+                        <div class="col-6 d-md-none d-block">
+                            <div class="footer-icons d-flex align-items-start flex-column flex-wrap">
+                                <img src="./images/universitat.svg" alt="">
+                                <img src="./images/welthaus.svg" alt="">
+                                <img src="./images/hildesheim.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-6">
+                            <ul class="list-unstyled d-flex flex-column gap-4 m-0 p-0">
+                                <li><a href="./festival-programme.html">Festivals</a></li>
+                                <li><a href="javascript:void(0);">Materialien</a></li>
+                                <li><a href="./about.html">Über uns</a></li>
+                                <li><a href="./imprint.html">Impressum</a></li>
+                                <li><a href="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
+                                            viewBox="0 0 24 24">
+                                            <path fill="currentColor"
+                                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                                        </svg>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
+                            </svg>
+                            <p class="text-md mb-3 fw-bold">Abonnieren Sie unseren Newsletter</p>
+                            <form action="" class="d-flex flex-column gap-3 align-items-end">
+                                <input type="text" class="form-control theme-control"
+                                    placeholder="Enter email address...">
+                                <button class="button button-secondary border-0">Abonnieren</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
