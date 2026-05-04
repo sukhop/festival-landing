@@ -217,7 +217,7 @@ h3,
 
     &-purple {
         &:hover {
-            background-color: lighten($pj-deep-purple, 10%);
+            background-color: color.adjust($pj-deep-purple, $lightness: 10%);
         }
 
         &:focus {
@@ -840,8 +840,13 @@ section {
 .hero {
     @include bg-cover('../images/hero.png');
 
+
     @media (max-width: 575.98px) {
         background-image: url('../images/hero-mobile.png');
+    }
+
+    &.imprint {
+        background-image: url('../images/imprint-bg.png') !important;
     }
 
     .text-green {
@@ -865,6 +870,29 @@ section {
                 font-size: 18px;
             }
         }
+    }
+}
+
+.main-home {
+    min-height: 100dvh;
+    background-position: bottom center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('../images/main-hero.png') !important;
+    
+}
+
+.main-about {
+    min-height: 100dvh;
+    background-position: bottom center;
+    background-size: cover;
+    display: flex;
+    background-image: url('../images/main-about.png') !important;
+    
+    &.spacer-y {
+        padding-top: 130px;
+        padding-bottom: 130px;
     }
 }
 
@@ -900,16 +928,21 @@ section {
     }
 }
 
+.lilac-section,
 .contact-section,
 .programming-section {
     min-height: 85dvh;
     @include flex();
     @include bg-cover('../images/yellow-bg.png');
     background-position: bottom;
-
+    
     @media (max-width: 575px) {
         min-height: unset;
     }
+}
+.lilac-section {
+    @include bg-cover('../images/lilac.png');
+    background-position: top;
 }
 
 .contact-section {
@@ -1204,7 +1237,6 @@ footer {
     }
 }
 
-
 // ════════════════════════════════════════════════════════════════════════════
 // ABOUT PAGE
 // ════════════════════════════════════════════════════════════════════════════
@@ -1243,6 +1275,7 @@ footer {
     &.spacer-y {
         padding-top: 50px;
         padding-bottom: 50px;
+
         @media (max-width: 767.98px) {
             padding-top: 30px;
             padding-bottom: 30px;
@@ -1293,6 +1326,7 @@ footer {
 
     @media (max-width: 991.98px) {
         margin-bottom: 1.5rem;
+
         img {
             max-width: 160px;
         }

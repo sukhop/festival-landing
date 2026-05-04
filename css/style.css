@@ -584,6 +584,9 @@ section .container {
     background-image: url("../images/hero-mobile.png");
   }
 }
+.hero.imprint {
+  background-image: url("../images/imprint-bg.png") !important;
+}
 @media (max-width: 991.98px) {
   .hero .text-green {
     gap: 1.25rem;
@@ -603,6 +606,27 @@ section .container {
   .hero.spacer-y .h3 {
     font-size: 18px;
   }
+}
+
+.main-home {
+  min-height: 100dvh;
+  background-position: bottom center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  background-image: url("../images/main-hero.png") !important;
+}
+
+.main-about {
+  min-height: 100dvh;
+  background-position: bottom center;
+  background-size: cover;
+  display: flex;
+  background-image: url("../images/main-about.png") !important;
+}
+.main-about.spacer-y {
+  padding-top: 130px;
+  padding-bottom: 130px;
 }
 
 .meeting-section .three-circle {
@@ -638,6 +662,7 @@ section .container {
   }
 }
 
+.lilac-section,
 .contact-section,
 .programming-section {
   min-height: 85dvh;
@@ -650,10 +675,18 @@ section .container {
   background-position: bottom;
 }
 @media (max-width: 575px) {
+  .lilac-section,
   .contact-section,
   .programming-section {
     min-height: unset;
   }
+}
+
+.lilac-section {
+  background-image: url("../images/lilac.png");
+  background-size: cover;
+  background-position: center;
+  background-position: top;
 }
 
 .contact-section {
@@ -1035,3 +1068,5 @@ footer .container-fluid .footer-icons img {
     text-align: left !important;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
