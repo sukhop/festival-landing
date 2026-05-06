@@ -616,10 +616,15 @@ section .container {
   align-items: flex-end;
   background-image: url("../images/main-hero.png") !important;
 }
+@media (max-width: 767px) {
+  .main-home {
+    align-items: center;
+  }
+}
 
 .main-about {
   min-height: 100dvh;
-  background-position: bottom center;
+  background-position: top center;
   background-size: cover;
   display: flex;
   background-image: url("../images/main-about.png") !important;
@@ -627,6 +632,20 @@ section .container {
 .main-about.spacer-y {
   padding-top: 130px;
   padding-bottom: 130px;
+}
+@media (max-width: 767px) {
+  .main-about + .programming-section.spacer-y {
+    padding-top: 0;
+  }
+}
+@media (max-width: 575px) {
+  .main-about.spacer-y {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .main-about img.mx-md-auto {
+    height: 54px;
+  }
 }
 
 .meeting-section .three-circle {
@@ -662,6 +681,7 @@ section .container {
   }
 }
 
+.netzwerk-sec,
 .lilac-section,
 .contact-section,
 .programming-section {
@@ -675,6 +695,7 @@ section .container {
   background-position: bottom;
 }
 @media (max-width: 575px) {
+  .netzwerk-sec,
   .lilac-section,
   .contact-section,
   .programming-section {
@@ -683,17 +704,24 @@ section .container {
 }
 
 .lilac-section {
-  background-image: url("../images/lilac.png");
+  background-image: url("../images/main-lilac.png");
   background-size: cover;
   background-position: center;
-  background-position: top;
+  background-position: center;
+}
+
+.netzwerk-sec {
+  background-image: url("../images/main-netzwerk.png");
+  background-size: cover;
+  background-position: center;
+  background-position: center;
 }
 
 .contact-section {
   background-image: url("../images/wave-bg-1.png");
   background-size: cover;
   background-position: center;
-  background-position: top;
+  background-position: center;
 }
 
 footer {
@@ -798,14 +826,16 @@ footer .container-fluid .footer-icons img {
 }
 
 .past-event {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 90px;
   padding: 14px 50px;
   background-image: url("../images/past-events-bg.png");
   background-size: cover;
   background-position: center;
+}
+.past-event .container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 90px;
 }
 
 .filter-btn {
@@ -1011,17 +1041,18 @@ footer .container-fluid .footer-icons img {
   background-position: center;
   background-repeat: no-repeat;
 }
-.about-section.about-org .container {
-  background-color: #fcfbfe;
-}
 .about-section .about-org-heading {
   color: #BFA7DE;
   font-weight: 600;
 }
 
 .about-org-logo-card {
-  background: transparent;
+  background: #FAFAFA;
   padding: 0;
+  border-radius: 40px;
+  min-height: 156px;
+  height: 100%;
+  max-height: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1033,6 +1064,7 @@ footer .container-fluid .footer-icons img {
 @media (max-width: 991.98px) {
   .about-org-logo-card {
     margin-bottom: 1.5rem;
+    border-radius: 24px;
   }
   .about-org-logo-card img {
     max-width: 160px;
@@ -1049,7 +1081,11 @@ footer .container-fluid .footer-icons img {
 @media (max-width: 991.98px) {
   .about-profile-img {
     max-width: 280px;
-    margin: 0 auto 2rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .about-profile-img {
+    max-width: 80%;
   }
 }
 
@@ -1070,3 +1106,4 @@ footer .container-fluid .footer-icons img {
 }
 
 /*# sourceMappingURL=style.css.map */
+

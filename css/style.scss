@@ -880,20 +880,41 @@ section {
     display: flex;
     align-items: flex-end;
     background-image: url('../images/main-hero.png') !important;
-    
+
+    @media (max-width: 767px) {
+        align-items: center;
+    }
 }
 
 .main-about {
     min-height: 100dvh;
-    background-position: bottom center;
+    background-position: top center;
     background-size: cover;
     display: flex;
     background-image: url('../images/main-about.png') !important;
-    
+
     &.spacer-y {
         padding-top: 130px;
         padding-bottom: 130px;
     }
+
+    @media (max-width: 767px) {
+        &+.programming-section.spacer-y {
+            padding-top: 0;
+        }
+    }
+
+    @media (max-width: 575px) {
+        &.spacer-y {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        & img.mx-md-auto {
+            height: 54px;
+        }
+    }
+
 }
 
 .meeting-section {
@@ -928,6 +949,7 @@ section {
     }
 }
 
+.netzwerk-sec,
 .lilac-section,
 .contact-section,
 .programming-section {
@@ -935,19 +957,25 @@ section {
     @include flex();
     @include bg-cover('../images/yellow-bg.png');
     background-position: bottom;
-    
+
     @media (max-width: 575px) {
         min-height: unset;
     }
 }
+
 .lilac-section {
-    @include bg-cover('../images/lilac.png');
-    background-position: top;
+    @include bg-cover('../images/main-lilac.png');
+    background-position: center;
+}
+
+.netzwerk-sec {
+    @include bg-cover('../images/main-netzwerk.png');
+    background-position: center;
 }
 
 .contact-section {
     @include bg-cover('../images/wave-bg-1.png');
-    background-position: top;
+    background-position: center;
 }
 
 footer {
@@ -1061,12 +1089,15 @@ footer {
 }
 
 .past-event {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 90px;
     padding: 14px 50px;
     @include bg-cover('../images/past-events-bg.png');
+
+    .container {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 90px;
+    }
 }
 
 // Filter button states
@@ -1302,9 +1333,9 @@ footer {
         background-repeat: no-repeat;
     }
 
-    &.about-org .container {
-        background-color: #fcfbfe;
-    }
+    // &.about-org .container {
+    //     background-color: #fcfbfe;
+    // }
 
     .about-org-heading {
         color: $pj-lilac;
@@ -1313,8 +1344,12 @@ footer {
 }
 
 .about-org-logo-card {
-    background: transparent;
+    background: #FAFAFA;
     padding: 0;
+    border-radius: 40px;
+    min-height: 156px;
+    height: 100%;
+    max-height: 440px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1326,6 +1361,7 @@ footer {
 
     @media (max-width: 991.98px) {
         margin-bottom: 1.5rem;
+        border-radius: 24px;
 
         img {
             max-width: 160px;
@@ -1342,8 +1378,14 @@ footer {
 
     @media (max-width: 991.98px) {
         max-width: 280px;
-        margin: 0 auto 2rem;
+        // margin: 0 auto 2rem;
     }
+
+    @media (max-width: 575.98px) {
+        max-width: 80%;
+        // margin: 0 auto 2rem;
+    }
+
 }
 
 .about-org-logo {
@@ -1362,3 +1404,5 @@ footer {
         }
     }
 }
+
+
