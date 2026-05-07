@@ -9,7 +9,7 @@
 body {
   font-family: "Noto Sans", sans-serif;
   color: #2A143A;
-  font-size: clamp(15px, 1.8vmin, 18px);
+  font-size: clamp(1rem, 0.9404rem + 0.2981vw, 1.125rem);
 }
 
 a {
@@ -982,6 +982,27 @@ footer .container-fluid .footer-icons img {
     text-align: left !important;
   }
 }
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px 200px;
+}
+.logo-grid img {
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+}
+@media (max-width: 575.98px) {
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
 .about-hero {
   background-image: url("../images/hero.png");
   background-size: cover;
@@ -1106,4 +1127,3 @@ footer .container-fluid .footer-icons img {
 }
 
 /*# sourceMappingURL=style.css.map */
-

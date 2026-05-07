@@ -51,7 +51,7 @@ $pj-brown: map.get($theme-colors, "brown");
 body {
     font-family: "Noto Sans", sans-serif;
     color: $pj-purple;
-    font-size: clamp(15px, 1.8vmin, 18px);
+    font-size: clamp(1rem, 0.9404rem + 0.2981vw, 1.125rem);
 }
 
 a {
@@ -1265,6 +1265,25 @@ footer {
         .col-lg-6 {
             text-align: left !important;
         }
+    }
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px 200px;
+    img {
+        width: 100%;
+    }
+
+    @media (max-width: 991.98px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
+
+    @media (max-width: 575.98px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 
