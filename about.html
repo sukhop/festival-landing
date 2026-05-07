@@ -28,27 +28,27 @@
                 </div>
                 <div class="item-right">
                     <!-- Desktop nav links — hidden until scrolled -->
-                    <ul class="desktop-menu-inline list-unstyled m-0 p-0">
-                        <li><a href="./festival-programme.html">Festivals</a></li>
+                    <ul class="menu list-unstyled m-0 p-0 d-none d-lg-flex" id="desktopMenu">
+                        <li><a href="./festivals.html">Festivals</a></li>
                         <li><a href="javascript:void(0);">Materialien</a></li>
                         <li><a href="./about.html">Über uns</a></li>
                         <li><a href="./imprint.html">Impressum</a></li>
                     </ul>
                     <!-- Desktop menu trigger — visible only after scroll -->
-                    <button class="menu-toggle d-none d-lg-inline-flex" type="button" aria-expanded="false">
-                        <span class="menu-toggle-label">Menu</span>
+                    <button class="menu-toggle bg-transparent" id="menuToggle" aria-expanded="false">
+                        <span style="font-size: 1rem; font-weight: 500;">Menu</span>
                     </button>
                     <!-- Desktop slide-in panel -->
-                    <nav class="desktop-menu-panel" aria-hidden="true">
-                        <ul class="desktop-menu-panel-list list-unstyled m-0 p-0">
-                            <li><a href="./festival-programme.html">Festivals</a></li>
+                    <nav class="desktop-menu-panel" id="desktopMenuPanel">
+                        <ul class="list-unstyled m-0 p-0 d-flex flex-column gap-4">
+                            <li><a href="./festivals.html">Festivals</a></li>
                             <li><a href="javascript:void(0);">Materialien</a></li>
                             <li><a href="./about.html">Über uns</a></li>
                             <li><a href="./imprint.html">Impressum</a></li>
                         </ul>
                     </nav>
                     <!-- Mobile hamburger -->
-                    <div class="hamburger d-lg-none" aria-label="Open menu" aria-expanded="false">
+                    <div class="hamburger d-lg-none" id="mobileHamburger">
                         <svg width="22" height="8" viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <line x1="0.75" y1="0.75" x2="20.8394" y2="0.75" stroke="#706C49" stroke-width="1.5"
                                 stroke-linecap="round" />
@@ -63,11 +63,11 @@
                             <button class="mobile-menu-close border-0 bg-transparent"
                                 id="mobileMenuClose">&times;</button>
                         </div>
-                        <ul class="list-unstyled m-0 p-0 d-flex flex-column gap-4 text-center">
-                            <li><a href="./festival-programme.html">Festivals</a></li>
-                            <li><a href="javascript:void(0);">Materialien</a></li>
-                            <li><a href="./about.html">Über uns</a></li>
-                            <li><a href="./imprint.html">Impressum</a></li>
+                        <ul class="list-unstyled m-0 p-0 d-flex flex-column gap-4 text-md-center">
+                            <li><a href="./festivals.html">Festivals</a></li>
+                                <li><a href="javascript:void(0);">Materialien</a></li>
+                                <li><a href="./about.html">Über uns</a></li>
+                                <li><a href="./imprint.html">Impressum</a></li>
                             <li><a href="javascript:void(0);">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mb-4"
                                         viewBox="0 0 24 24">
@@ -110,11 +110,17 @@
                 <div class="row g-4 flex-column-reverse flex-lg-row align-items-center justify-content-between">
                     <div class="col-lg-6">
                         <h2 class="mb-4 text-lg fw-medium">Prof. Dr. Paul Mecheril</h2>
-                        <p class="mb-3">Paul Mecheril ist Professor für Erziehungswissenschaft mit dem Schwerpunkt Migration an der Fakultät für Erziehungswissenschaft der Universität Bielefeld. Er promovierte in Psychologie, die Habilitation in Erziehungswissenschaft widmete sich dem Phänomen der (Mehrfach)Zugehörigkeiten in der Migrationsgesellschaft.</p>
-                        <p class="mb-0">Er beschäftigt sich unter anderem mit rassismustheoretischer Gesellschaftsanalyse, ethischen Fragen von Bildung sowie migrationsgesellschaftlichen Zugehörigkeitsordnungen, Macht und Bildung.</p>
+                        <p class="mb-3">Paul Mecheril ist Professor für Erziehungswissenschaft mit dem Schwerpunkt
+                            Migration an der Fakultät für Erziehungswissenschaft der Universität Bielefeld. Er
+                            promovierte in Psychologie, die Habilitation in Erziehungswissenschaft widmete sich dem
+                            Phänomen der (Mehrfach)Zugehörigkeiten in der Migrationsgesellschaft.</p>
+                        <p class="mb-0">Er beschäftigt sich unter anderem mit rassismustheoretischer
+                            Gesellschaftsanalyse, ethischen Fragen von Bildung sowie migrationsgesellschaftlichen
+                            Zugehörigkeitsordnungen, Macht und Bildung.</p>
                     </div>
                     <div class="col-lg-5 text-lg-end">
-                        <img src="./images/top-most-secton.png" class="about-profile-img ms-lg-auto" alt="Prof. Dr. Paul Mecheril">
+                        <img src="./images/top-most-secton.png" class="about-profile-img ms-lg-auto"
+                            alt="Prof. Dr. Paul Mecheril">
                     </div>
                 </div>
             </div>
@@ -131,8 +137,16 @@
                     </div>
                     <div class="col-lg-7">
                         <h3 class="text-lg text-lilac mb-4">Universität Bielefeld</h3>
-                        <p class="mb-3">Institut für Erziehungswissenschaft, AG 10 Migrationspädagogik und Rassismuskritik Noch nie waren weltweit so viele Menschen bereit, aufgrund von Kriegen, der Zerstörung von natürlichen Lebensbedingungen, Kriegen und anderen Bedrohungen gezwungen und aufgrund der technologisch bedingten Veränderung von Raum und Zeit in der Lage, ihren Arbeits- oder Lebensmittelpunkt, sei es vorübergehend oder auf Dauer, zu verändern: Wir leben in einem Zeitalter der Migration. </p>
-                        <p class="mb-0">Die AG beschäftigt sich mit der Frage, welche Bildungskonzepte in diesem Zeitalter angemessen sind und geht davon aus, dass Bildung in gerade diesem Zeitalter darauf zielen sollte, Formen und Ausmaß der zerstörerischen Gewalt des Menschen gegen Menschen und gegen die Natur zu erkennen und zu der Minderung dieser Gewalt beizutragen.</p>
+                        <p class="mb-3">Institut für Erziehungswissenschaft, AG 10 Migrationspädagogik und
+                            Rassismuskritik Noch nie waren weltweit so viele Menschen bereit, aufgrund von Kriegen, der
+                            Zerstörung von natürlichen Lebensbedingungen, Kriegen und anderen Bedrohungen gezwungen und
+                            aufgrund der technologisch bedingten Veränderung von Raum und Zeit in der Lage, ihren
+                            Arbeits- oder Lebensmittelpunkt, sei es vorübergehend oder auf Dauer, zu verändern: Wir
+                            leben in einem Zeitalter der Migration. </p>
+                        <p class="mb-0">Die AG beschäftigt sich mit der Frage, welche Bildungskonzepte in diesem
+                            Zeitalter angemessen sind und geht davon aus, dass Bildung in gerade diesem Zeitalter darauf
+                            zielen sollte, Formen und Ausmaß der zerstörerischen Gewalt des Menschen gegen Menschen und
+                            gegen die Natur zu erkennen und zu der Minderung dieser Gewalt beizutragen.</p>
                     </div>
                 </div>
             </div>
@@ -144,8 +158,16 @@
                 <div class="row g-4 flex-column-reverse flex-lg-row align-items-center justify-content-between">
                     <div class="col-lg-6">
                         <h2 class="mb-4 text-lg fw-medium">Nadine Etzkorn</h2>
-                        <p class="mb-3">Nadine Etzkorn ist wissenschaftliche Mitarbeiterin am Arbeitsbereich Diversity Education des Instituts für Angewandte Erziehungswissenschaft der Universität Hildesheim. Sie arbeitet dort im Projekt „Zukünfte der Migration“, das sich mit Vorstellungen und Strategien zur Gestaltung von migrationsgesellschaftlichen Zukünften in politischen, medialen und sozialen Debatten, mit einem Fokus auf Bildungskontexte und die Migrationsforschung selbst auseinandersetzt.</p>
-                        <p class="mb-0">In ihrer Promotion untersucht sie Differenz- und Rassismuserfahrungen internationaler Studierender sowie die (Un-)Möglichkeiten rassismuskritischer Bildungsprozesse. Ihre Arbeits- und Forschungsschwerpunkte umfassen Rassismus, Migration, Bildung, Nachhaltigkeit, Dekolonialität, Internationalisierung und soziale Bewegungen./p>
+                        <p class="mb-3">Nadine Etzkorn ist wissenschaftliche Mitarbeiterin am Arbeitsbereich Diversity
+                            Education des Instituts für Angewandte Erziehungswissenschaft der Universität Hildesheim.
+                            Sie arbeitet dort im Projekt „Zukünfte der Migration“, das sich mit Vorstellungen und
+                            Strategien zur Gestaltung von migrationsgesellschaftlichen Zukünften in politischen,
+                            medialen und sozialen Debatten, mit einem Fokus auf Bildungskontexte und die
+                            Migrationsforschung selbst auseinandersetzt.</p>
+                        <p class="mb-0">In ihrer Promotion untersucht sie Differenz- und Rassismuserfahrungen
+                            internationaler Studierender sowie die (Un-)Möglichkeiten rassismuskritischer
+                            Bildungsprozesse. Ihre Arbeits- und Forschungsschwerpunkte umfassen Rassismus, Migration,
+                            Bildung, Nachhaltigkeit, Dekolonialität, Internationalisierung und soziale Bewegungen./p>
                     </div>
                     <div class="col-lg-5 text-lg-end">
                         <img src="./images/top-section.png" class="about-profile-img ms-lg-auto" alt="Nadine Etzkorn">
@@ -165,9 +187,18 @@
                     </div>
                     <div class="col-lg-7">
                         <h3 class="text-lg text-lilac mb-4">Universität Hildesheim</h3>
-                        <p class="mb-3">Institut für Angewandte Erziehungswissenschaft, Arbeitsbereich Diversity Education</p>
-                        <p class="mb-3">Im Arbeitsbereich Diversity Education wird die Bedeutung von Diversität und Migration für die Gestaltung, Organisation und Transformation von Bildung erforscht. Dabei haben wir die schulische und außerschulische Bildung gleichermaßen im Blick.</p>
-                        <p class="mb-0">Unsere Forschung zielt auf die Produktion, Vermittlung und Reflexion von Wissen über Migration, Mehrsprachigkeit, Diskriminierung, Diversität und Demokratie in Bildung, Zivilgesellschaft und Kultur Bildungsungleichheit und soziale Teilhabe in der Migrationsgesellschaft die Gestaltung von Rahmenbedingungen und Strukturen gesellschaftlicher und politischer Teilhabe im Kontext migrationsbedingter Diversität. Erkenntnistransfer in Politik, Zivilgesellschaft, Bildungspraxis und Medien sind für uns eine Selbstverständlichkeit.</p>
+                        <p class="mb-3">Institut für Angewandte Erziehungswissenschaft, Arbeitsbereich Diversity
+                            Education</p>
+                        <p class="mb-3">Im Arbeitsbereich Diversity Education wird die Bedeutung von Diversität und
+                            Migration für die Gestaltung, Organisation und Transformation von Bildung erforscht. Dabei
+                            haben wir die schulische und außerschulische Bildung gleichermaßen im Blick.</p>
+                        <p class="mb-0">Unsere Forschung zielt auf die Produktion, Vermittlung und Reflexion von Wissen
+                            über Migration, Mehrsprachigkeit, Diskriminierung, Diversität und Demokratie in Bildung,
+                            Zivilgesellschaft und Kultur Bildungsungleichheit und soziale Teilhabe in der
+                            Migrationsgesellschaft die Gestaltung von Rahmenbedingungen und Strukturen
+                            gesellschaftlicher und politischer Teilhabe im Kontext migrationsbedingter Diversität.
+                            Erkenntnistransfer in Politik, Zivilgesellschaft, Bildungspraxis und Medien sind für uns
+                            eine Selbstverständlichkeit.</p>
                     </div>
                 </div>
             </div>
@@ -179,11 +210,21 @@
                 <div class="row g-4 flex-column-reverse flex-lg-row align-items-center justify-content-between">
                     <div class="col-lg-6">
                         <h2 class="mb-4 text-lg fw-medium">Dr. Lara Esther Bartels</h2>
-                        <p class="mb-3">Lara Bartels ist Eine-Welt-Regionalpromotorin für Bielefeld und die Kreise Gütersloh, Herford und Paderborn beim Welthaus Bielefeld e.V. und fungiert dort auch als Fachbereichsleitung Inland - Bildung. Als Regionalpromotorin unterstützt sie Engagement von Schulen, Initiativen, Vereinen und Kommunen im Bereich Globales Lernen und Bildung für nachhaltige Entwicklung (BNE).</p>
-                        <p class="mb-0">Dies geschieht u.a. durch Beratungen, Vernetzung, Entwicklung und Durchführung von Workshops  und Betreuung der außerschulischen Lernorte „Global Goals Radweg “ und “Erlebnisraum Globale Nachhaltigkeit”. Zuvor hat sie als wissenschaftliche Mitarbeiterin zu (Re-)Produktion von Ungleichheiten im Zugang zu Land und Wasser in West- und Ostafrika geforscht. Sie interessiert sich insbesondere für die Schnittstelle zwischen (Zivil-)Gesellschaft und Wissenschaft im Themenbereich sozial-ökologische Gerechtigkeit</p>
+                        <p class="mb-3">Lara Bartels ist Eine-Welt-Regionalpromotorin für Bielefeld und die Kreise
+                            Gütersloh, Herford und Paderborn beim Welthaus Bielefeld e.V. und fungiert dort auch als
+                            Fachbereichsleitung Inland - Bildung. Als Regionalpromotorin unterstützt sie Engagement von
+                            Schulen, Initiativen, Vereinen und Kommunen im Bereich Globales Lernen und Bildung für
+                            nachhaltige Entwicklung (BNE).</p>
+                        <p class="mb-0">Dies geschieht u.a. durch Beratungen, Vernetzung, Entwicklung und Durchführung
+                            von Workshops  und Betreuung der außerschulischen Lernorte „Global Goals Radweg “ und
+                            “Erlebnisraum Globale Nachhaltigkeit”. Zuvor hat sie als wissenschaftliche Mitarbeiterin zu
+                            (Re-)Produktion von Ungleichheiten im Zugang zu Land und Wasser in West- und Ostafrika
+                            geforscht. Sie interessiert sich insbesondere für die Schnittstelle zwischen
+                            (Zivil-)Gesellschaft und Wissenschaft im Themenbereich sozial-ökologische Gerechtigkeit</p>
                     </div>
                     <div class="col-lg-5 text-lg-end">
-                        <img src="./images/last-secton.png" class="about-profile-img ms-lg-auto" alt="Dr. Lara Esther Bartels">
+                        <img src="./images/last-secton.png" class="about-profile-img ms-lg-auto"
+                            alt="Dr. Lara Esther Bartels">
                     </div>
                 </div>
             </div>
@@ -200,8 +241,19 @@
                     </div>
                     <div class="col-lg-7">
                         <h3 class="text-lg text-lilac mb-4">Welthaus Bielefeld</h3>
-                        <p class="mb-3">Welthaus Bielefeld e.V.  ist ein entwicklungspolitischer Verein, er wurde bereits 1980 gegründet und ist in ganz Deutschland vernetzt. Feste und ehrenamtliche Mitarbeiter*innen arbeiten hier zusammen für globale sozial-ökologische Gerechtigkeit in einer zukunftsfähigen Welt. Sie engagieren sich in der Bildungs- und Öffentlichkeitsarbeit, in internationaler Kulturarbeit, in Entwicklungszusammenarbeit mit Projektpartner*innen in Afrika und Lateinamerika, im Freiwilligenprogramm weltwärts, im Fairen Handel und in der Städtepartnerschaft der Stadt Bielefeld mit Estelí, Nicaragua.</p>
-                        <p class="mb-0">Das Welthaus Bielefeld ist bundesweit anerkannt für seine Expertise in Globalem Lernen/Bildung für Nachhaltige Entwicklung (BNE). Es engagiert sich in lokalen, landes- und bundesweiten Netzwerken wie etwa dem BNE-Netzwerk Bielefeld. Mit selbst entwickelten didaktischen Materialien, Workshops, einer Mediothek, vielen öffentlichen Veranstaltungen und den außerschulischen Lernorten Global Goals Radweg und Erlebnisraum Globale Nachhaltigkeit ermöglicht das Welthaus Bielefeld Globales Lernen.</p>
+                        <p class="mb-3">Welthaus Bielefeld e.V.  ist ein entwicklungspolitischer Verein, er wurde
+                            bereits 1980 gegründet und ist in ganz Deutschland vernetzt. Feste und ehrenamtliche
+                            Mitarbeiter*innen arbeiten hier zusammen für globale sozial-ökologische Gerechtigkeit in
+                            einer zukunftsfähigen Welt. Sie engagieren sich in der Bildungs- und Öffentlichkeitsarbeit,
+                            in internationaler Kulturarbeit, in Entwicklungszusammenarbeit mit Projektpartner*innen in
+                            Afrika und Lateinamerika, im Freiwilligenprogramm weltwärts, im Fairen Handel und in der
+                            Städtepartnerschaft der Stadt Bielefeld mit Estelí, Nicaragua.</p>
+                        <p class="mb-0">Das Welthaus Bielefeld ist bundesweit anerkannt für seine Expertise in Globalem
+                            Lernen/Bildung für Nachhaltige Entwicklung (BNE). Es engagiert sich in lokalen, landes- und
+                            bundesweiten Netzwerken wie etwa dem BNE-Netzwerk Bielefeld. Mit selbst entwickelten
+                            didaktischen Materialien, Workshops, einer Mediothek, vielen öffentlichen Veranstaltungen
+                            und den außerschulischen Lernorten Global Goals Radweg und Erlebnisraum Globale
+                            Nachhaltigkeit ermöglicht das Welthaus Bielefeld Globales Lernen.</p>
                     </div>
                 </div>
             </div>

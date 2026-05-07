@@ -184,23 +184,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ════════════════════════════════════════════════════════════════════════
-    // ACCORDION LOGIC
+    // EVENT MODAL LOGIC
     // ════════════════════════════════════════════════════════════════════════
-    document.querySelectorAll('.event-list .list-wrap').forEach(item => {
-        item.addEventListener('click', () => {
-            const body   = item.nextElementSibling;
-            if (!body || !body.classList.contains('event-accordion-body')) return;
-            const isOpen = !body.classList.contains('d-none');
+    const eventModal        = document.getElementById('event-modal');
+    const eventModalContent = eventModal?.querySelector('[data-event-modal-content]');
+    const eventModalClose   = eventModal?.querySelector('.event-modal-close');
+    const eventTriggers     = document.querySelectorAll('.event-list .list-wrap');
+    let activeEventTrigger  = null;
 
-            document.querySelectorAll('.event-accordion-body').forEach(b => b.classList.add('d-none'));
-            document.querySelectorAll('.list-wrap').forEach(l => l.classList.remove('active'));
+    const closeEventModal = () => {
+        if (!eventModal || !eventModalContent) return;
 
-            if (!isOpen) {
-                body.classList.remove('d-none');
-                item.classList.add('active');
+        eventModal.classList.remove('active');
+        eventModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        eventModalContent.innerHTML = '';
+
+        if (activeEventTrigger) {
+            activeEventTrigger.classList.remove('active');
+            activeEventTrigger.setAttribute('aria-expanded', 'false');
+            activeEventTrigger.focus();
+            activeEventTrigger = null;
+        }
+    };
+
+    if (eventModal && eventModalContent && eventModalClose) {
+        const openEventModal = (trigger) => {
+            const template = trigger.nextElementSibling;
+            if (!template || !template.classList.contains('event-modal-template')) return;
+
+            document.querySelectorAll('.event-list .list-wrap').forEach(item => {
+                item.classList.remove('active');
+                item.setAttribute('aria-expanded', 'false');
+            });
+            activeEventTrigger = trigger;
+            activeEventTrigger.classList.add('active');
+            activeEventTrigger.setAttribute('aria-expanded', 'true');
+
+            eventModalContent.innerHTML = template.innerHTML;
+            eventModal.classList.add('active');
+            eventModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+            eventModalClose.focus();
+        };
+
+        eventTriggers.forEach(item => {
+            item.addEventListener('click', () => openEventModal(item));
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openEventModal(item);
+                }
+            });
+        });
+
+        eventModalClose.addEventListener('click', closeEventModal);
+        eventModal.addEventListener('click', (e) => {
+            if (!e.target.closest('.event-modal-panel')) {
+                closeEventModal();
             }
         });
-    });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && eventModal.classList.contains('active')) {
+                closeEventModal();
+            }
+        });
+    }
 
 
     // ════════════════════════════════════════════════════════════════════════
@@ -225,5 +275,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-
